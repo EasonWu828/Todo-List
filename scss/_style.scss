@@ -1,66 +1,72 @@
-
 $dark: #333333;
-$gray: #9F9A91;
+$gray: #9f9a91;
 $light: #fff;
 $danger: red;
-$bg-primary:#ffd370;
-$bg-secondary:#E8E8E8 ;
-$bd-light:#EFEFEF;
+$bg-primary: #ffd370;
+$bg-secondary: #e8e8e8;
+$bd-light: #efefef;
 
-*{
+* {
   box-sizing: border-box;
 }
-html{
+html {
   font-size: 16px;
 }
-body{
+body {
   min-height: 100vh;
   color: $dark;
-  background-image: linear-gradient(174deg, $bg-primary 2%, $bg-primary 46%, $light 46%, $light 100%, $bg-secondary 100%);
+  background-image: linear-gradient(
+    174deg,
+    $bg-primary 2%,
+    $bg-primary 46%,
+    $light 46%,
+    $light 100%,
+    $bg-secondary 100%
+  );
   letter-spacing: 0.05rem;
 }
-.container{
+.container {
   max-width: 500px;
   margin: 0 auto;
   padding: 48px 12px 0;
-  @include mobile{
+  @include mobile {
     padding-top: 1.5rem;
   }
 }
-.title{
-  font-family: 'Baloo Tamma 2', cursive;
+.title {
+  font-family: "Baloo Tamma 2", cursive;
   text-align: center;
   font-size: 3rem;
   letter-spacing: 0.4rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  @include mobile{
+  @include mobile {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
 }
-.card{
+.card {
   margin-bottom: 0.5rem;
   border-radius: 10px;
   background: $light;
-  box-shadow: 0 0 15px 0 rgba(0,0,0,0.15);
-  font-family: 'Noto Sans TC', sans-serif;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+  font-family: "Noto Sans TC", sans-serif;
 }
-.input{
+.input {
   display: flex;
   padding: 4px 12px 4px 20px;
 }
-.inputText{
-    width: 100%;
-    border: 0;
-    outline: 0;
-    font-size: 1rem;
-    color: $dark;
-    &::placeholder{
-      color: $gray;
-    }
+.inputText {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  color: $dark;
+  &::placeholder {
+    color: $gray;
+  }
 }
-.addBtn{
+.addBtn {
   width: 40px;
   height: 40px;
   color: $light;
@@ -71,57 +77,61 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  &:hover{
+  &:hover {
     background: $gray;
   }
 }
-.main{
+.main {
   display: flex;
   text-align: center;
   color: $gray;
-  li{
+  li {
     padding: 1rem;
     width: 100%;
     border-bottom: 2px solid $bd-light;
     cursor: pointer;
-    &:hover{
+    &:hover {
       color: $dark;
+      border-color: rgba(51, 51, 51, 0.3);
+    }
+    &.active {
+      color: $dark;
+      border-color: $dark;
       font-weight: bold;
-      border-bottom: 2px solid $dark;
     }
   }
 }
-.card-content{
+.card-content {
   padding: 10px 16px 10px 20px;
-  @include mobile{
+  @include mobile {
     padding: 8px 10px 8px 16px;
   }
 }
-.list li{
+.list li {
   position: relative;
   padding-right: 2rem;
-  &:hover .deleteBtn{
+  &:hover .deleteBtn {
     opacity: 1;
   }
-  .deleteBtn{
+  .deleteBtn {
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
     opacity: 0;
-    &:hover{
+    &:hover {
       color: $danger;
     }
   }
 }
-.checkBox{
+.checkBox {
   position: relative;
   display: block;
   user-select: none;
   width: 100%;
   padding-left: 50px;
   cursor: pointer;
-  input{
+  input {
     display: block;
     position: absolute;
     width: 100%;
@@ -131,24 +141,24 @@ body{
     margin: 0;
     opacity: 0;
     cursor: pointer;
-    &:checked{
-      ~ p{
+    &:checked {
+      ~ p {
         color: $gray;
         text-decoration: line-through;
-        &::before{
+        &::before {
           opacity: 0;
         }
-        &::after{
+        &::after {
           opacity: 1;
         }
       }
     }
   }
-  p{
+  p {
     padding: 1rem 0;
     border-bottom: 1px solid $bd-light;
-    &::before{
-      content: '';
+    &::before {
+      content: "";
       position: absolute;
       width: 20px;
       height: 20px;
@@ -160,8 +170,8 @@ body{
       transition: 0.1s;
       pointer-events: none;
     }
-    &::after{
-      content: '';
+    &::after {
+      content: "";
       position: absolute;
       transform: rotate(45deg);
       border-right: 3px solid $bg-primary;
@@ -176,206 +186,17 @@ body{
     }
   }
 }
-.list-footer{
+.list-footer {
   display: flex;
   justify-content: space-between;
   padding: 24px 16px;
   font-size: 14px;
-  .clear-item{
+  .clear-item {
     color: $gray;
     text-decoration: none;
     display: block;
-    &:hover{
+    &:hover {
       color: $danger;
     }
   }
 }
-
-
-// body{
-//   height: 100vh;
-//   background-image: linear-gradient(174deg, #FFD370 2%, #FFD370 46%, #FFFFFF 46%, #FFFFFF 100%, #E8E8E8 100%);
-//   font-family: 'Noto Sans TC', sans-serif;
-// }
-// .wrap{
-//   max-width: 500px;
-//   margin: 0 auto;
-//   text-align: center;
-//   padding-top: 50px;
-//    @include mobile{
-//       padding: 16px 12px 0;
-//   }
-//   .title{
-//     font-family: 'Baloo Tamma 2', cursive;
-//     color: $dark;
-//     letter-spacing: 8px;
-//     font-size: 3rem;
-//     margin-bottom: 1.625rem;
-//   }
-//   .text-item{
-//     position: relative;
-//     box-shadow: 0 0 15px 0 rgba(0,0,0,0.15);
-//     margin-bottom: 0.5rem;
-//   }
-//   .inputText{
-//     width: 100%;
-//     height: 48px;
-//     font-size: 1rem;
-//     border-radius: 10px;
-//     border: none;
-//     padding-left: 1.25rem;
-//     letter-spacing: 1px;
-//   }
-//   .addBtn{
-//     position: absolute;
-//     right: -10px;
-//     top: 50%;
-//     display: block;
-//     transform: translate(-50%,-50%);
-//     text-decoration: none;
-//     background: $dark;
-//     color: $light;
-//     width: 40px;
-//     height: 40px;
-//     border-radius: 10px;
-//     font-size: 2.125rem;
-//     border: none;
-//     &:hover{
-//       background: $gray;
-//     }
-//   }
-// }
-// .list{
-//   background: $light;
-//   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-//   border-radius: 10px;
-//   .main{
-//     display: flex;
-//     justify-content: space-around;
-//     font-size: 0.875rem;
-//     color: $gray;
-//     li{
-//       width: 33.33%;
-//       padding: 16px 0;
-//       border-bottom: 2px solid $bd-light;
-//       &:hover{
-//         cursor: pointer;
-//         color: $dark;
-//         border-bottom: 2px solid $dark;
-//       }
-//     }
-//   }
-// }
-// .list-item{
-//   padding: 0 24px;
-//   .work{
-//     position: relative;
-//   }
-// }
-// .work{
-//   display: flex;
-   
-//   .close-btn{
-//     opacity: 0;
-//   }
-//   &:hover .close-btn{
-//     opacity: 1;
-//   }
-// }
-// .checkbox{
-//   display: block;
-//   position: relative;
-//   width: 100%;
-//   padding-left: 36px;
-//   cursor: pointer;
-//   input{
-//     display: block;
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     cursor: pointer;
-//     top: 0;
-//     left: 0;
-//     margin: 0;
-//     opacity: 0;
-//   }
-//   p{
-//     padding: 24px 0 17px;
-//     border-bottom: 1px solid $bd-light;
-//     &::before{
-//       content: '';
-//       position: absolute;
-//       left: 0;
-//       height: 20px;
-//       width: 20px;
-//       border: 1px solid $dark;
-//       border-radius: 5px;
-//       transition: 0.2s ease;
-//     }
-//     &::after{
-//       content: '';
-//       left: 5px;
-//       position: absolute;
-//       height: 15px;
-//       width: 8px;
-//       border-bottom: 3px solid $bd-info;
-//       border-right: 3px solid $bd-info;
-//       transform: rotate(45deg);
-//       opacity: 0;
-//       transition: 0.2s ease;
-//     }
-//   }
-//   input:checked{
-//     ~ p{
-//       color: $gray;
-//       text-decoration: line-through;
-//     }
-//     ~ p::before{
-//       opacity: 0;
-//     }
-//     ~p::after{
-//       opacity: 1;
-//     }
-//   }
-// }
-// .work{
-//   display: flex;
-//   .check-box{
-//     width: 20px;
-//     height: 20px;
-//     margin: 25px 16px 0 24px;
-//   }
-//   .list-txt{
-//    padding: 25px 0 17px;
-//    line-height: 24px;
-//    text-align: left;
-//    width: 80%;
-//    border-bottom: 1px solid $bd-light;
-//   }
-//   .close-btn{
-//     width: 16px;
-//     height: 16px;
-//     margin: 25px 16px 0 24px;
-//     &:hover{
-//       color: red;
-//       cursor: pointer;
-//     }
-//   }
-// }
-// .footer{
-//   display: flex;
-//   font-size: 14px;
-//   justify-content: space-between;
-//   .toDo-item{
-//     color: $dark;
-//     padding: 24px 0 32px 24px;
-//   }
-//   .clear-item{
-//     color: $gray;
-//     padding: 24px 47px 32px 0;
-//     &:hover{
-//       color: red;
-//       cursor: pointer;
-//     }
-//   }
-// }

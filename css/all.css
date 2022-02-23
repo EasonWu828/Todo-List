@@ -65,7 +65,7 @@ html {
 body {
   min-height: 100vh;
   color: #333333;
-  background-image: linear-gradient(174deg, #ffd370 2%, #ffd370 46%, #fff 46%, #fff 100%, #E8E8E8 100%);
+  background-image: linear-gradient(174deg, #ffd370 2%, #ffd370 46%, #fff 46%, #fff 100%, #e8e8e8 100%);
   letter-spacing: 0.05rem;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 .title {
-  font-family: 'Baloo Tamma 2', cursive;
+  font-family: "Baloo Tamma 2", cursive;
   text-align: center;
   font-size: 3rem;
   letter-spacing: 0.4rem;
@@ -103,7 +103,7 @@ body {
   background: #fff;
   -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
 .input {
@@ -122,19 +122,19 @@ body {
 }
 
 .inputText::-webkit-input-placeholder {
-  color: #9F9A91;
+  color: #9f9a91;
 }
 
 .inputText:-ms-input-placeholder {
-  color: #9F9A91;
+  color: #9f9a91;
 }
 
 .inputText::-ms-input-placeholder {
-  color: #9F9A91;
+  color: #9f9a91;
 }
 
 .inputText::placeholder {
-  color: #9F9A91;
+  color: #9f9a91;
 }
 
 .addBtn {
@@ -157,7 +157,7 @@ body {
 }
 
 .addBtn:hover {
-  background: #9F9A91;
+  background: #9f9a91;
 }
 
 .main {
@@ -165,20 +165,25 @@ body {
   display: -ms-flexbox;
   display: flex;
   text-align: center;
-  color: #9F9A91;
+  color: #9f9a91;
 }
 
 .main li {
   padding: 1rem;
   width: 100%;
-  border-bottom: 2px solid #EFEFEF;
+  border-bottom: 2px solid #efefef;
   cursor: pointer;
 }
 
 .main li:hover {
   color: #333333;
+  border-color: rgba(51, 51, 51, 0.3);
+}
+
+.main li.active {
+  color: #333333;
+  border-color: #333333;
   font-weight: bold;
-  border-bottom: 2px solid #333333;
 }
 
 .card-content {
@@ -238,7 +243,7 @@ body {
 }
 
 .checkBox input:checked ~ p {
-  color: #9F9A91;
+  color: #9f9a91;
   text-decoration: line-through;
 }
 
@@ -252,11 +257,11 @@ body {
 
 .checkBox p {
   padding: 1rem 0;
-  border-bottom: 1px solid #EFEFEF;
+  border-bottom: 1px solid #efefef;
 }
 
 .checkBox p::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 20px;
   height: 20px;
@@ -272,7 +277,7 @@ body {
 }
 
 .checkBox p::after {
-  content: '';
+  content: "";
   position: absolute;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -300,7 +305,7 @@ body {
 }
 
 .list-footer .clear-item {
-  color: #9F9A91;
+  color: #9f9a91;
   text-decoration: none;
   display: block;
 }
