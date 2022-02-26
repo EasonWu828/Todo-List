@@ -3,24 +3,35 @@ const addBtn = document.querySelector('.addBtn');
 const list = document.querySelector('.list');
 const deleteBtn = document.querySelector('.deleteBtn');
 const main = document.querySelector('.main');
+const workNum = document.querySelector('.workNum');
+const cardList = document.querySelector('.card-list');
+const clearItem = document.querySelector('.clear-item');
 
 
 let data = [];
 // 切換狀態預設
 let toggleStatus = 'all';
 
-addBtn.addEventListener('click', e =>{
-  e.preventDefault();
-  addTodo();
-});
+addBtn.addEventListener('click', addTodo);
 // 鍵盤操作
-inputText.addEventListener('keypress', e =>{
+inputText.addEventListener('keyup', e =>{
   if(e.key === 'Enter'){
-    addTodo()
+    addTodo(e)
   }
 });
 // 監聽 Tab
 main.addEventListener('click', changeTab);
+// 刪除單一項目&確認 checked 狀態
+list.addEventListener('click', deleteCheckStatus);
+// 清除完成項目
+clearItem.addEventListener('click', deleteDone);
+
+// 清除完成項目
+function deleteDone(e){
+  e.preventDefault();
+  data = data.filter((item) => item.checked === '')
+  updateList();
+}
 
 // 切換狀態
 function changeTab(e){
@@ -33,7 +44,8 @@ function changeTab(e){
   updateList();
 }
 
-// checked 狀態更新資料
+
+// tab 狀態更新資料
 function updateList(){
   let showData = [];
   if (toggleStatus === 'all') {
@@ -43,20 +55,27 @@ function updateList(){
   } else {
     showData = data.filter((item) => item.checked === 'checked');
   }
+  let todoLength = data.filter((item)=> item.checked === '');
+  workNum.textContent = todoLength.length;
   render(showData);
 }
 
 
 // 初始資料
 function render(todo){
+  if(!data.length){
+    cardList.style.display = 'none';
+    return;
+  }
+  cardList.style.display = 'block';
   let str = '';
-  todo.forEach((item, index) => {
+  todo.forEach((item) => {
     str += `<li data-id="${item.id}">
             <label for="" class="checkBox">
               <input type="checkbox" ${item.checked}>
               <p>${item.value}</p>
             </label>
-            <a href="#"><span class="material-icons deleteBtn" data-num="${index}">
+            <a href="#"><span class="material-icons deleteBtn">
               close
             </span></a>
           </li>`
@@ -65,42 +84,45 @@ function render(todo){
 }
 
 // 新增資料
-function addTodo(){
+function addTodo(e){
+  e.preventDefault();
   if (inputText.value.trim() === ""){
     alert('請輸入正確資料');
     return;
   };
   let obj = {};
-  obj.value = inputText.value,
-  obj.id = new Date().getTime(),
+  obj.value = inputText.value;
+  obj.id = new Date().getTime();
   obj.checked = '';
   data.push(obj);
   inputText.value = '';
-  render(data);
+  updateList();
 }
 
-
-list.addEventListener('click', e => {
+// 刪除單一&切換 ckecked 狀態
+function deleteCheckStatus(e){
   let id = parseInt(e.target.closest('li').dataset.id);
-  if (e.target.classList.contains('deleteBtn')){
+  if (e.target.classList.contains('deleteBtn')) {
     e.preventDefault();
-    let num = e.target.dataset.num;
-    if(confirm('確定刪除這個項目?')){
-      data.splice(num, 1);
+    if (confirm('確定刪除這個項目?')) {
+      data = data.filter((item) => item.id !== id);
     }
-  }else{
-    data.forEach((item)=>{
-      if (item.id === id){
-        if (item.checked === 'checked'){
+  } else {
+    data.forEach((item) => {
+      if (item.id === id) {
+        if (item.checked === 'checked') {
           item.checked = '';
-        }else{
+        } else {
           item.checked = 'checked';
         }
       }
     })
   }
-  render();
-})
+  updateList();
+}
+
+
+
 
 
 
