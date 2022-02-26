@@ -211,6 +211,7 @@ body {
 
 .list li .deleteBtn {
   position: absolute;
+  color: #333333;
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
